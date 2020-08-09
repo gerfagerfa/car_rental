@@ -17,7 +17,7 @@ List<NavigationItem> getNavigationItemList(){
   ];
 }
 
-class Deal {
+class Car {
 
   String brand;
   String model;
@@ -27,13 +27,13 @@ class Deal {
   bool favorite;
 
 
-  Deal(this.brand, this.model, this.price, this.condition, this.images, this.favorite);
+  Car(this.brand, this.model, this.price, this.condition, this.images, this.favorite);
 
 }
 
-List<Deal> getDealList(){
-  return <Deal>[
-    Deal(
+List<Car> getCarList(){
+  return <Car>[
+    Car(
       "Honda",
       "Civic Type R 2019",
       2580,
@@ -45,7 +45,7 @@ List<Deal> getDealList(){
       ],
       false
     ),
-    Deal(
+    Car(
       "Alfa Romeo",
       "C4",
       3580,
@@ -55,7 +55,7 @@ List<Deal> getDealList(){
       ],
       false
     ),
-    Deal(
+    Car(
       "Nissan",
       "GTR",
       1100,
@@ -65,6 +65,20 @@ List<Deal> getDealList(){
         "assets/images/nissan_gtr_1.png",
         "assets/images/nissan_gtr_2.png",
         "assets/images/nissan_gtr_3.png",
+      ],
+      false
+    ),
+    Car(
+      "Ferrari",
+      "Spider 488",
+      4200,
+      "Monthly",
+      [
+        "assets/images/ferrari_spider_488_0.png",
+        "assets/images/ferrari_spider_488_1.png",
+        "assets/images/ferrari_spider_488_2.png",
+        "assets/images/ferrari_spider_488_3.png",
+        "assets/images/ferrari_spider_488_4.png",
       ],
       false
     ),
@@ -99,5 +113,21 @@ List<Dealer> getDealerList(){
       89,
       "assets/images/tesla.jpg",
     ),
+  ];
+}
+
+class Filter {
+
+  String name;
+
+  Filter(this.name);
+
+}
+
+List<Filter> getFilterList(){
+  return <Filter>[
+    Filter("Best Match"),
+    Filter("Highest Price"),
+    Filter("Lowest Price"),
   ];
 }

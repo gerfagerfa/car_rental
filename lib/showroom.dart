@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:car_rental/constants.dart';
 import 'package:car_rental/data.dart';
+import 'package:car_rental/car_widget.dart';
+import 'package:car_rental/dealer_widget.dart';
+import 'package:car_rental/available_cars.dart';
+import 'package:car_rental/book_car.dart';
 
 class Showroom extends StatefulWidget {
   @override
@@ -11,7 +15,7 @@ class _ShowroomState extends State<Showroom> {
   List<NavigationItem> navigationItems = getNavigationItemList();
   NavigationItem selectedItem;
 
-  List<Deal> deals = getDealList();
+  List<Car> cars = getCarList();
   List<Dealer> dealers = getDealerList();
 
   @override
@@ -152,64 +156,72 @@ class _ShowroomState extends State<Showroom> {
                     ),
                   ),
 
-                  Padding(
-                    padding: EdgeInsets.only(top: 16, right: 16, left: 16),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: kPrimaryColor,
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(15),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => AvailableCars()),
+                      );
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 16, right: 16, left: 16),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: kPrimaryColor,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(15),
+                          ),
                         ),
-                      ),
-                      padding: EdgeInsets.all(24),
-                      height: 100,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
+                        padding: EdgeInsets.all(24),
+                        height: 100,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
 
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
 
-                              Text(
-                                "Available Cars",
-                                style: TextStyle(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
+                                Text(
+                                  "Available Cars",
+                                  style: TextStyle(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+
+                                Text(
+                                  "Long term and short term",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                  ),
+                                ),
+
+                              ],
+                            ),
+
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(15),
                                 ),
                               ),
-
-                              Text(
-                                "Long term and short term",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.white,
+                              height: 50,
+                              width: 50,
+                              child: Center(
+                                child: Icon(
+                                  Icons.arrow_forward_ios,
+                                  color: kPrimaryColor,
                                 ),
                               ),
-
-                            ],
-                          ),
-
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(15),
-                              ),
                             ),
-                            height: 50,
-                            width: 50,
-                            child: Center(
-                              child: Icon(
-                                Icons.arrow_forward_ios,
-                                color: kPrimaryColor,
-                              ),
-                            ),
-                          ),
 
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -294,98 +306,28 @@ class _ShowroomState extends State<Showroom> {
 
   List<Widget> buildDeals(){
     List<Widget> list = [];
-    for (var i = 0; i < deals.length; i++) {
-      list.add(buildDeal(deals[i], i));
+    for (var i = 0; i < cars.length; i++) {
+      list.add(
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => BookCar(car: cars[i])),
+            );
+          },
+          child: buildCar(cars[i], i)
+        )
+      );
     }
     return list;
   }
 
-  Widget buildDeal(Deal deal, int index){
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.all(
-          Radius.circular(15),
-        ),
-      ),
-      padding: EdgeInsets.all(16),
-      margin: EdgeInsets.only(right: 16, left: index == 0 ? 16 : 0),
-      width: 220,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-
-          Align(
-            alignment: Alignment.centerRight,
-            child: Container(
-              decoration: BoxDecoration(
-                color: kPrimaryColor,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(15),
-                ),
-              ),
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                child: Text(
-                  deal.condition,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-          ),
-
-          SizedBox(
-            height: 8,
-          ),
-
-          Container(
-            height: 120,
-            child: Center(
-              child: Image.asset(
-                deal.images[0],
-                fit: BoxFit.fitWidth,
-              ),
-            ),
-          ),
-
-          SizedBox(
-            height: 24,
-          ),
-
-          Text(
-            deal.model,
-            style: TextStyle(
-              fontSize: 18
-            ),
-          ),
-
-          SizedBox(
-            height: 8,
-          ),
-
-          Text(
-            deal.brand,
-            style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-
-          Text(
-            "per " + (deal.condition == "Daily" ? "day" : deal.condition == "Weekly" ? "week" : "month"),
-            style: TextStyle(
-              fontSize: 14,
-              color: Colors.grey,
-            ),
-          ),
-
-        ],
-      ),
-    );
+  List<Widget> buildDealers(){
+    List<Widget> list = [];
+    for (var i = 0; i < dealers.length; i++) {
+      list.add(buildDealer(dealers[i], i));
+    }
+    return list;
   }
 
   List<Widget> buildNavigationItems(){
@@ -431,68 +373,6 @@ class _ShowroomState extends State<Showroom> {
 
           ],
         ),
-      ),
-    );
-  }
-
-  List<Widget> buildDealers(){
-    List<Widget> list = [];
-    for (var i = 0; i < dealers.length; i++) {
-      list.add(buildDealer(dealers[i], i));
-    }
-    return list;
-  }
-
-  Widget buildDealer(Dealer dealer, int index){
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.all(
-          Radius.circular(15),
-        ),
-      ),
-      padding: EdgeInsets.all(16),
-      margin: EdgeInsets.only(right: 16, left: index == 0 ? 16 : 0),
-      width: 150,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(dealer.image), 
-                fit: BoxFit.cover,
-              ),
-              borderRadius: BorderRadius.all(
-                Radius.circular(15),
-              ),
-            ),
-            height: 60,
-            width: 60,
-          ),
-
-          SizedBox(
-            height: 16,
-          ),
-
-          Text(
-            dealer.name,
-            style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-
-          Text(
-            dealer.offers.toString() + " offers",
-            style: TextStyle(
-              fontSize: 14,
-              color: Colors.grey,
-            ),
-          ),
-
-        ],
       ),
     );
   }
