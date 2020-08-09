@@ -24,10 +24,8 @@ class Car {
   double price;
   String condition;
   List<String> images;
-  bool favorite;
 
-
-  Car(this.brand, this.model, this.price, this.condition, this.images, this.favorite);
+  Car(this.brand, this.model, this.price, this.condition, this.images);
 
 }
 
@@ -43,7 +41,6 @@ List<Car> getCarList(){
         "assets/images/land_rover_1.png",
         "assets/images/land_rover_2.png",
       ],
-      false
     ),
     Car(
       "Alfa Romeo",
@@ -53,7 +50,6 @@ List<Car> getCarList(){
       [
         "assets/images/alfa_romeo_c4_0.png",
       ],
-      false
     ),
     Car(
       "Nissan",
@@ -66,13 +62,34 @@ List<Car> getCarList(){
         "assets/images/nissan_gtr_2.png",
         "assets/images/nissan_gtr_3.png",
       ],
-      false
+    ),
+    Car(
+      "Acura",
+      "MDX 2020",
+      2200,
+      "Monthly",
+      [
+        "assets/images/acura_0.png",
+        "assets/images/acura_1.png",
+        "assets/images/acura_2.png",
+      ],
+    ),
+    Car(
+      "Chevrolet",
+      "Camaro",
+      3400,
+      "Weekly",
+      [
+        "assets/images/camaro_0.png",
+        "assets/images/camaro_1.png",
+        "assets/images/camaro_2.png",
+      ],
     ),
     Car(
       "Ferrari",
       "Spider 488",
       4200,
-      "Monthly",
+      "Weekly",
       [
         "assets/images/ferrari_spider_488_0.png",
         "assets/images/ferrari_spider_488_1.png",
@@ -80,7 +97,46 @@ List<Car> getCarList(){
         "assets/images/ferrari_spider_488_3.png",
         "assets/images/ferrari_spider_488_4.png",
       ],
-      false
+    ),
+    Car(
+      "Ford",
+      "Focus",
+      2300,
+      "Weekly",
+      [
+        "assets/images/ford_0.png",
+        "assets/images/ford_1.png",
+      ],
+    ),
+    Car(
+      "Fiat",
+      "500x",
+      1450,
+      "Weekly",
+      [
+        "assets/images/fiat_0.png",
+        "assets/images/fiat_1.png",
+      ],
+    ),
+    Car(
+      "Honda",
+      "Civic",
+      900,
+      "Daily",
+      [
+        "assets/images/honda_0.png",
+      ],
+    ),
+    Car(
+      "Citroen",
+      "Picasso",
+      1200,
+      "Monthly",
+      [
+        "assets/images/citroen_0.png",
+        "assets/images/citroen_1.png",
+        "assets/images/citroen_2.png",
+      ],
     ),
   ];
 }

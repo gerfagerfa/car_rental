@@ -180,7 +180,6 @@ class _BookCarState extends State<BookCar> {
 
                       Expanded(
                         child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: widget.car.images.length > 1 ? 0 : 16),
                           child: PageView(
                             physics: BouncingScrollPhysics(),
                             onPageChanged: (int page){
@@ -190,6 +189,7 @@ class _BookCarState extends State<BookCar> {
                             },
                             children: widget.car.images.map((path) {
                               return Container(
+                                padding: EdgeInsets.symmetric(horizontal: 16,),
                                 child: Hero(
                                   tag: widget.car.model,
                                   child: Image.asset(
@@ -274,6 +274,9 @@ class _BookCarState extends State<BookCar> {
                     buildSpecificationCar("Color", "White"),
                     buildSpecificationCar("Gearbox", "Automatic"),
                     buildSpecificationCar("Seat", "4"),
+                    buildSpecificationCar("Motor", "v10 2.0"),
+                    buildSpecificationCar("Speed (0-100)", "3.2 sec"),
+                    buildSpecificationCar("Top Speed", "121 mph"),
                   ],
                 ),
               ),

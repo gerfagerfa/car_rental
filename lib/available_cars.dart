@@ -64,7 +64,7 @@ class _AvailableCarsState extends State<AvailableCars> {
               ),
 
               Text(
-                "Available Cars",
+                "Available Cars (" + getCarList().length.toString() + ")",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 36,
