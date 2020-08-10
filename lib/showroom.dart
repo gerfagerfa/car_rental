@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:car_rental/constants.dart';
 import 'package:car_rental/data.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:car_rental/car_widget.dart';
 import 'package:car_rental/dealer_widget.dart';
 import 'package:car_rental/available_cars.dart';
@@ -36,7 +37,7 @@ class _ShowroomState extends State<Showroom> {
         brightness: Brightness.light,
         title: Text(
           "Car Rental App",
-          style: TextStyle(
+          style: GoogleFonts.muli(
             fontSize: 28,
             fontWeight: FontWeight.bold,
             color: Colors.black,
