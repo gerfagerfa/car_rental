@@ -32,8 +32,8 @@ class Car {
 List<Car> getCarList(){
   return <Car>[
     Car(
-      "Honda",
-      "Civic Type R 2019",
+      "Land Rover",
+      "Discovery",
       2580,
       "Weekly",
       [

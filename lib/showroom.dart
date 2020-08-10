@@ -31,8 +31,9 @@ class _ShowroomState extends State<Showroom> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         elevation: 0,
+        brightness: Brightness.light,
         title: Text(
           "Car Rental App",
           style: TextStyle(
