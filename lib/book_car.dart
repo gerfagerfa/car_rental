@@ -42,7 +42,7 @@ class _BookCarState extends State<BookCar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Container(
           width: double.infinity,
@@ -53,13 +53,6 @@ class _BookCarState extends State<BookCar> {
               Expanded(
                 child: Container(
                   padding: EdgeInsets.symmetric(vertical: 16),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(30),
-                      bottomRight: Radius.circular(30),
-                    ),
-                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -251,32 +244,48 @@ class _BookCarState extends State<BookCar> {
                 ),
               ),
               
-              Padding(
-                padding: EdgeInsets.only(top: 16, left: 16, right: 16),
-                child: Text(
-                  "SPECIFICATIONS",
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey[400],
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey[100],
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
                   ),
                 ),
-              ),
-
-              Container(
-                height: 80,
-                padding: EdgeInsets.only(top: 8, left: 16,),
-                margin: EdgeInsets.only(bottom: 16),
-                child: ListView(
-                  physics: BouncingScrollPhysics(),
-                  scrollDirection: Axis.horizontal,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    buildSpecificationCar("Color", "White"),
-                    buildSpecificationCar("Gearbox", "Automatic"),
-                    buildSpecificationCar("Seat", "4"),
-                    buildSpecificationCar("Motor", "v10 2.0"),
-                    buildSpecificationCar("Speed (0-100)", "3.2 sec"),
-                    buildSpecificationCar("Top Speed", "121 mph"),
+
+                    Padding(
+                      padding: EdgeInsets.only(top: 16, left: 16, right: 16),
+                      child: Text(
+                        "SPECIFICATIONS",
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey[400],
+                        ),
+                      ),
+                    ),
+
+                    Container(
+                      height: 80,
+                      padding: EdgeInsets.only(top: 8, left: 16,),
+                      margin: EdgeInsets.only(bottom: 16),
+                      child: ListView(
+                        physics: BouncingScrollPhysics(),
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          buildSpecificationCar("Color", "White"),
+                          buildSpecificationCar("Gearbox", "Automatic"),
+                          buildSpecificationCar("Seat", "4"),
+                          buildSpecificationCar("Motor", "v10 2.0"),
+                          buildSpecificationCar("Speed (0-100)", "3.2 sec"),
+                          buildSpecificationCar("Top Speed", "121 mph"),
+                        ],
+                      ),
+                    ),
+
                   ],
                 ),
               ),

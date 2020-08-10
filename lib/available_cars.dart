@@ -43,6 +43,7 @@ class _AvailableCarsState extends State<AvailableCars> {
                   width: 45,
                   height: 45,
                   decoration: BoxDecoration(
+                    color: Colors.white,
                     borderRadius: BorderRadius.all(
                       Radius.circular(15),
                     ),

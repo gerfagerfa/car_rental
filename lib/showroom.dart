@@ -28,11 +28,8 @@ class _ShowroomState extends State<Showroom> {
 
   @override
   Widget build(BuildContext context) {
-
-    Size size = MediaQuery.of(context).size;
-
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -44,6 +41,7 @@ class _ShowroomState extends State<Showroom> {
             color: Colors.black,
           ),
         ),
+        centerTitle: false,
         actions: [
           Padding(
             padding: EdgeInsets.only(right: 16),
@@ -60,13 +58,6 @@ class _ShowroomState extends State<Showroom> {
         children: [
 
           Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(30),
-                bottomRight: Radius.circular(30),
-              ),
-            ),
             padding: EdgeInsets.only(bottom: 10),
             child: Padding(
               padding: EdgeInsets.all(16),
@@ -100,187 +91,196 @@ class _ShowroomState extends State<Showroom> {
           Expanded(
             child: SingleChildScrollView(
               physics: BouncingScrollPhysics(),
-              child: Column(
-                children: [
-
-                  Padding(
-                    padding: EdgeInsets.all(16),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-
-                        Text(
-                          "TOP DEALS",
-                          style: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey[400],
-                          ),
-                        ),
-
-                        Row(
-                          children: [
-
-                            Text(
-                              "view all",
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                color: kPrimaryColor,
-                              ),
-                            ),
-
-                            SizedBox(
-                              width: 8,
-                            ),
-
-                            Icon(
-                              Icons.arrow_forward_ios,
-                              size: 12,
-                              color: kPrimaryColor,
-                            ),
-
-                          ],
-                        ),
-
-                      ],
-                    ),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey[100],
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
                   ),
+                ),
+                child: Column(
+                  children: [
 
-                  Container(
-                    height: 280,
-                    child: ListView(
-                      physics: BouncingScrollPhysics(),
-                      scrollDirection: Axis.horizontal,
-                      children: buildDeals(),
-                    ),
-                  ),
+                    Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
 
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => AvailableCars()),
-                      );
-                    },
-                    child: Padding(
-                      padding: EdgeInsets.only(top: 16, right: 16, left: 16),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: kPrimaryColor,
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(15),
-                          ),
-                        ),
-                        padding: EdgeInsets.all(24),
-                        height: 100,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-
-                                Text(
-                                  "Available Cars",
-                                  style: TextStyle(
-                                    fontSize: 22,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                  ),
-                                ),
-
-                                Text(
-                                  "Long term and short term",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.white,
-                                  ),
-                                ),
-
-                              ],
+                          Text(
+                            "TOP DEALS",
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey[400],
                             ),
+                          ),
 
-                            Container(
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(15),
-                                ),
-                              ),
-                              height: 50,
-                              width: 50,
-                              child: Center(
-                                child: Icon(
-                                  Icons.arrow_forward_ios,
+                          Row(
+                            children: [
+
+                              Text(
+                                "view all",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
                                   color: kPrimaryColor,
                                 ),
                               ),
-                            ),
 
-                          ],
+                              SizedBox(
+                                width: 8,
+                              ),
+
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                size: 12,
+                                color: kPrimaryColor,
+                              ),
+
+                            ],
+                          ),
+
+                        ],
+                      ),
+                    ),
+
+                    Container(
+                      height: 280,
+                      child: ListView(
+                        physics: BouncingScrollPhysics(),
+                        scrollDirection: Axis.horizontal,
+                        children: buildDeals(),
+                      ),
+                    ),
+
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => AvailableCars()),
+                        );
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.only(top: 16, right: 16, left: 16),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: kPrimaryColor,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(15),
+                            ),
+                          ),
+                          padding: EdgeInsets.all(24),
+                          height: 100,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+
+                                  Text(
+                                    "Available Cars",
+                                    style: TextStyle(
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+
+                                  Text(
+                                    "Long term and short term",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+
+                                ],
+                              ),
+
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(15),
+                                  ),
+                                ),
+                                height: 50,
+                                width: 50,
+                                child: Center(
+                                  child: Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: kPrimaryColor,
+                                  ),
+                                ),
+                              ),
+
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
 
-                  Padding(
-                    padding: EdgeInsets.all(16),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
+                    Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
 
-                        Text(
-                          "TOP DEALERS",
-                          style: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey[400],
+                          Text(
+                            "TOP DEALERS",
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey[400],
+                            ),
                           ),
-                        ),
 
-                        Row(
-                          children: [
+                          Row(
+                            children: [
 
-                            Text(
-                              "view all",
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
+                              Text(
+                                "view all",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: kPrimaryColor,
+                                ),
+                              ),
+
+                              SizedBox(
+                                width: 8,
+                              ),
+
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                size: 12,
                                 color: kPrimaryColor,
                               ),
-                            ),
 
-                            SizedBox(
-                              width: 8,
-                            ),
+                            ],
+                          ),
 
-                            Icon(
-                              Icons.arrow_forward_ios,
-                              size: 12,
-                              color: kPrimaryColor,
-                            ),
-
-                          ],
-                        ),
-
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
 
-                  Container(
-                    height: 150,
-                    margin: EdgeInsets.only(bottom: 16),
-                    child: ListView(
-                      physics: BouncingScrollPhysics(),
-                      scrollDirection: Axis.horizontal,
-                      children: buildDealers(),
+                    Container(
+                      height: 150,
+                      margin: EdgeInsets.only(bottom: 16),
+                      child: ListView(
+                        physics: BouncingScrollPhysics(),
+                        scrollDirection: Axis.horizontal,
+                        children: buildDealers(),
+                      ),
                     ),
-                  ),
 
-                ],
+                  ],
+                ),
               ),
             ),
           ),
