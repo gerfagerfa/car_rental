@@ -27,9 +27,9 @@ class _BookCarState extends State<BookCar> {
   Widget buildIndicator(bool isActive){
     return AnimatedContainer(
       duration: Duration(milliseconds: 150),
-      margin: EdgeInsets.symmetric(horizontal: 6.0),
-      height: 8.0,
-      width: isActive ? 20.0 : 8.0,
+      margin: EdgeInsets.symmetric(horizontal: 6),
+      height: 8,
+      width: isActive ? 20 : 8,
       decoration: BoxDecoration(
         color: isActive ? Colors.black : Colors.grey[400],
         borderRadius: BorderRadius.all(
@@ -198,7 +198,7 @@ class _BookCarState extends State<BookCar> {
 
                       widget.car.images.length > 1
                       ? Container(
-                        margin: EdgeInsets.only(top: 16, bottom: 16),
+                        margin: EdgeInsets.symmetric(vertical: 16),
                         height: 30,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -325,7 +325,7 @@ class _BookCarState extends State<BookCar> {
                   children: [
 
                     Text(
-                      "AED 4,350",
+                      "USD 4,350",
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,

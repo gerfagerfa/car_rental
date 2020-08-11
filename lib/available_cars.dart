@@ -22,7 +22,6 @@ class _AvailableCarsState extends State<AvailableCars> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -119,14 +118,6 @@ class _AvailableCarsState extends State<AvailableCars> {
     );
   }
 
-  List<Widget> buildFilters(){
-    List<Widget> list = [];
-    for (var i = 0; i < filters.length; i++) {
-      list.add(buildFilter(filters[i]));
-    }
-    return list;
-  }
-
   Widget buildFilterIcon(){
     return Container(
       width: 50,
@@ -146,6 +137,14 @@ class _AvailableCarsState extends State<AvailableCars> {
         ),
       ),
     );
+  }
+
+  List<Widget> buildFilters(){
+    List<Widget> list = [];
+    for (var i = 0; i < filters.length; i++) {
+      list.add(buildFilter(filters[i]));
+    }
+    return list;
   }
 
   Widget buildFilter(Filter filter){
