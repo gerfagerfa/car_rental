@@ -4,7 +4,7 @@ Source Code - Enjoy !
 # Most Important Social Media
 YouTube: https://www.youtube.com/channel/UCQheyq1vvmd0RaKv1EDyGfA
 
-I hope you liked it, and dont forget to like, subscribe, share this video with your friends, and star the repository on GitHub!
+I hope you liked it, and don't forget to like, subscribe, share this video with your friends, and star the repository on GitHub!
 
 # Social Media
 GitHub: https://github.com/gerfagerfa
